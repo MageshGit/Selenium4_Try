@@ -89,7 +89,7 @@ public class SeleniumManagerTests {
 
 	@AfterMethod
 	public void closeBrowser() {
-		System.out.println(driver.manage().logs().toString());
+		
 		driver.close();
 		// driver.quit();
 	}
