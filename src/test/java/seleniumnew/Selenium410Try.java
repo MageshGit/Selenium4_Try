@@ -4,12 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Selenium410Try {
 	private WebDriver driver;
@@ -20,9 +18,9 @@ public class Selenium410Try {
 
 	@BeforeMethod
 	public void launchBrowser() {
-		WebDriverManager.chromedriver().setup();
+
 		// setup the browser
-		driver = new ChromeDriver();
+		driver = new EdgeDriver();
 
 		// maximize the browser window
 		driver.manage().window().maximize();
@@ -32,7 +30,7 @@ public class Selenium410Try {
 	}
 
 	@Test(description = "ShadowDOM Test")
-	public void tryShadowDomTest() throws InterruptedException {
+	public void tryShadowDomTest1() throws InterruptedException {
 		// find top area
 		SearchContext shadowRootTop = driver.findElement(sr_top).getShadowRoot();
 
@@ -41,10 +39,12 @@ public class Selenium410Try {
 
 		// type into the search box
 		searchBox.sendKeys("Hi Selenium Shadow dom");
+		System.out.println("Test execution done");
 	}
-
 	@AfterMethod
 	public void closeBrowser() {
+		System.out.println(driver.manage().logs().toString());
 		driver.close();
+		// driver.quit();
 	}
 }

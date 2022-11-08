@@ -8,8 +8,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-
 public class LinkTest {
 
 	private WebDriver driver;
@@ -17,7 +15,6 @@ public class LinkTest {
 
 	@BeforeMethod
 	public void launchBrowser() {
-		WebDriverManager.chromedriver().setup();
 		//setup the browser
 		driver = new ChromeDriver();
 		
